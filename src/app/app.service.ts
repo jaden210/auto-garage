@@ -6,7 +6,8 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AppService {
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth) {
+   }
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());

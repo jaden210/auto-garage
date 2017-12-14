@@ -1,15 +1,15 @@
 <div id="garage" *ngIf="aService.afAuth.authState | async; let user; else showLogin">
   <div id="logout" (click)="aService.logout()">Logout</div>
   <div id="title"> {{ user.displayName }}'s Garage</div>
-  <div id="cars">
+  <div id="cars" *ngFor="let item of items | async">
     <div class="car-card">
-      mazda
+      {{item.make}}
     </div>
   </div>
 </div>
 <ng-template #showLogin>
   <div id="login">
-    <div id="login-card">
+    <div id="login-card" >
       <img src="/assets/school512.png">
       <div id="login-button" (click)="aService.login()">Login with Google</div>
     </div>
