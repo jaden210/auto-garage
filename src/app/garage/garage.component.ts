@@ -12,6 +12,7 @@ export class GarageComponent implements OnInit {
 
   private itemsCollection: AngularFirestoreCollection<any>;
   items: Observable<any[]>;
+  newCar: Car = new Car();
 
   constructor(public aService: AppService, private db: AngularFirestore) { }
 
@@ -24,4 +25,20 @@ export class GarageComponent implements OnInit {
     });
   }
 
+  createCar() {
+    this.itemsCollection.add(JSON.parse(JSON.stringify(this.newCar)));
+  }
+
+}
+
+export class Car {
+  id: any;
+  make: string = "test";
+  model: string;
+  year: string;
+  generation: string;
+  mods: string;
+  engine: string;
+  trim: string;
+  disabledAt: Date;
 }
